@@ -1,12 +1,13 @@
+from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig
 import os
 from dotenv import load_dotenv
-from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig
 
 load_dotenv()
 
 # Get Gemini Api Key
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 
+# 
 provider = AsyncOpenAI(
     api_key=gemini_api_key,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
@@ -18,21 +19,27 @@ model = OpenAIChatCompletionsModel(
     openai_client=provider,
 )
 
+# Configuration the Runconfig
 config = RunConfig(
     model=model,
     model_provider=provider,
     tracing_disabled=True
 )
-
-hello_agent = Agent(
-    name="Hello Agent",
-    instructions="you are a hello agent, your task is to say to everyone Assalam-O-Alaiqum to the user"
+# Create Agent
+student_agent = Agent(
+    name="Smart Student Assistant",
+    instructions="You are a supportive and knowledgeable Smart Student Assistant helping students learn, summarize, and stay motivated."
 )
+
+print("📘👋 Hello! I'm your **Smart Student Assistant**.")
+print("1. Ask academic question")
+print("2. Get study tip")
+print("3. Summarize text")
 
 user_input = input("Enter Your Question: ")
 
 agent_result = Runner.run_sync(
-    hello_agent,
+    student_agent,
     user_input,
     run_config=config
 )

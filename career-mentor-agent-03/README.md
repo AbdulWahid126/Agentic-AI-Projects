@@ -53,25 +53,6 @@ pip install -r requirements.txt
 # Run the agent
 python main.py
 
-"I'm interested in Artificial Intelligence."
-
-Suggested Career: AI Engineer
-Skill Roadmap:
-1. Python
-2. Machine Learning
-3. Deep Learning
-4. MLOps
-Job Roles:
-- ML Engineer at Google
-- Data Scientist at Meta
-
-
-
----
-
-Let me know if you'd like me to:
-- Generate a GitHub-ready folder structure?
-- Add badges or visuals?
-- Translate this into Urdu or add comments in your Python files?
+-----------------------------------------------
 
 I'm here to polish it further!
